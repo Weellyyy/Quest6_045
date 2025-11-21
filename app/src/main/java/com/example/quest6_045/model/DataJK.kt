@@ -4,6 +4,7 @@ import com.example.quest6_045.R
 
 object DataJK {
     val JenisK= listOf(
-
+        R.string.laki,
+        R.string.wanita
     )
 }

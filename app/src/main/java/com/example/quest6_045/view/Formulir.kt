@@ -38,6 +38,7 @@ fun FormIsian(
 ){
 
     var txtNama by rememberSaveable { mutableStateOf("") }
+    var txtAlamat by remember { mutableStateOf("") }
 
 
     Scaffold (modifier = Modifier,

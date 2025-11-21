@@ -54,6 +54,7 @@ fun FormIsian(
                     colorResource(id = R.color.teal_700))
             )}
     ) { isiRuang ->
+        // Penjelasan: Komponen RadioButton tetap di dalam Row, sisanya di bawahnya dalam Column.
         Column(
             modifier = Modifier.padding(isiRuang),
             verticalArrangement = Arrangement.Top,
@@ -66,9 +67,7 @@ fun FormIsian(
                     .padding(top = 20.dp)
                     .width(250.dp),
                 label = { Text(text = "Nama Lengkap") },
-                onValueChange = {
-                    txtNama = it
-                }
+                onValueChange = { txtNama = it }
             )
             HorizontalDivider(
                 modifier = Modifier
@@ -80,9 +79,7 @@ fun FormIsian(
                     Row(
                         modifier = Modifier.selectable(
                             selected = txtGender == item,
-                            onClick = {
-                                txtGender = item
-                            }
+                            onClick = { txtGender = item }
                         ),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
@@ -96,33 +93,28 @@ fun FormIsian(
                         )
                     }
                 }
-                HorizontalDivider(
-                    modifier = Modifier
-                        .padding(20.dp)
-                        .width(250.dp),
-                    thickness = 1.dp,
-                    color = Color.Red
-                )
-                OutlinedTextField(
-                    value = txtAlamat,
-                    singleLine = true,
-                    modifier = Modifier
-                        .width(250.dp),
-                    label = { Text(text = "Alamat") },
-                    onValueChange = {
-                        txtAlamat = it
-                    }
-                )
-                Spacer(modifier = Modifier.height(30.dp))
-                Button(
-                    modifier = Modifier.fillMaxWidth(1f),
-                    enabled = txtAlamat.isNotEmpty(),
-                    onClick = {
-                        OnSubmitBtnClick(listData)
-                    }
-                ) {
-                    Text(stringResource(R.string.submit))
-                }
+            }
+            HorizontalDivider(
+                modifier = Modifier
+                    .padding(20.dp)
+                    .width(250.dp),
+                thickness = 1.dp,
+                color = Color.Red
+            )
+            OutlinedTextField(
+                value = txtAlamat,
+                singleLine = true,
+                modifier = Modifier.width(250.dp),
+                label = { Text(text = "Alamat") },
+                onValueChange = { txtAlamat = it }
+            )
+            Spacer(modifier = Modifier.height(30.dp))
+            Button(
+                modifier = Modifier.fillMaxWidth(1f),
+                enabled = txtAlamat.isNotEmpty(),
+                onClick = { OnSubmitBtnClick(listData) }
+            ) {
+                Text(stringResource(R.string.submit))
             }
         }
     }

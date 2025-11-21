@@ -53,67 +53,76 @@ fun FormIsian(
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
                     colorResource(id = R.color.teal_700))
             )}
-    ){ isiRuang ->
-        Column(modifier = Modifier.padding(isiRuang),
+    ) { isiRuang ->
+        Column(
+            modifier = Modifier.padding(isiRuang),
             verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally) {
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             OutlinedTextField(
                 value = txtNama,
                 singleLine = true,
                 modifier = Modifier
                     .padding(top = 20.dp)
                     .width(250.dp),
-                label = {Text(text = "Nama Lengkap")},
+                label = { Text(text = "Nama Lengkap") },
                 onValueChange = {
                     txtNama = it
                 }
             )
-            HorizontalDivider(modifier = Modifier
-                .padding(20.dp)
-                .width(250.dp), thickness = Thickness, color = Color.Red)
+            HorizontalDivider(
+                modifier = Modifier
+                    .padding(20.dp)
+                    .width(250.dp), thickness = Thickness, color = Color.Red
+            )
             Row {
-                pilihanJK.forEach { item->
-                    Row(modifier = Modifier.selectable(
-                        selected = txtGender== item,
-                        onClick = {
-                            txtGender = item
-                        }
-                    ),
+                pilihanJK.forEach { item ->
+                    Row(
+                        modifier = Modifier.selectable(
+                            selected = txtGender == item,
+                            onClick = {
+                                txtGender = item
+                            }
+                        ),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         RadioButton(
-                            selected = txtGender== item,
+                            selected = txtGender == item,
                             onClick = null
                         )
                         Text(
                             text = item,
-                            modifier = Modifier.padding(start= 4.dp)
+                            modifier = Modifier.padding(start = 4.dp)
                         )
+                    }
                 }
-            }
-            HorizontalDivider(modifier = Modifier
-                .padding(20.dp)
-                .width(250.dp),
-                thickness = 1.dp,
-                color = Color.Red
-            )
-            OutlinedTextField(
-                value = txtAlamat,
-                singleLine = true,
-                modifier = Modifier
-                    .width(250.dp),
-                label = {Text(text = "Alamat")},
-                onValueChange = {
-                    txtAlamat = it
+                HorizontalDivider(
+                    modifier = Modifier
+                        .padding(20.dp)
+                        .width(250.dp),
+                    thickness = 1.dp,
+                    color = Color.Red
+                )
+                OutlinedTextField(
+                    value = txtAlamat,
+                    singleLine = true,
+                    modifier = Modifier
+                        .width(250.dp),
+                    label = { Text(text = "Alamat") },
+                    onValueChange = {
+                        txtAlamat = it
+                    }
+                )
+                Spacer(modifier = Modifier.height(30.dp))
+                Button(
+                    modifier = Modifier.fillMaxWidth(1f),
+                    enabled = txtAlamat.isNotEmpty(),
+                    onClick = {
+                        OnSubmitBtnClick(listData)
+                    }
+                ) {
+                    Text(stringResource(R.string.submit))
                 }
-            )
-            Spacer(modifier = Modifier.height(30.dp))
-            Button(
-                modifier = Modifier.fillMaxWidth(1f)
-                    .padding(all = 25.dp),
-                onClick = OnSubmitBtnClick
-            ) {
-                Text(stringResource(R.string.submit))
             }
         }
     }

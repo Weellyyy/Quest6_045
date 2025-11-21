@@ -25,10 +25,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.quest6_045.R
+import com.example.quest6_045.model.Siswa
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TampilData(
+    statusUiSisqa: Siswa,
     onBackBtnClick: () -> Unit,
 ){
     val items = listOf(

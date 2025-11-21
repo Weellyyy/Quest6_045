@@ -30,13 +30,13 @@ import com.example.quest6_045.model.Siswa
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TampilData(
-    statusUiSisqa: Siswa,
+    statusUiSiswa: Siswa,
     onBackBtnClick: () -> Unit,
 ){
     val items = listOf(
-        Pair(stringResource(R.string.nama_lengkap), "Welly"),
-        Pair(stringResource(R.string.jenis_kelamin), "Lainnya"),
-        Pair(stringResource(R.string.alamat), "Yogyakarta"),
+        Pair(stringResource(R.string.nama_lengkap), statusUiSiswa.nama ),
+        Pair(stringResource(R.string.jenis_kelamin), statusUiSiswa.gender),
+        Pair(stringResource(R.string.alamat), statusUiSiswa.alamat),
     )
     Scaffold (modifier = Modifier,
         {

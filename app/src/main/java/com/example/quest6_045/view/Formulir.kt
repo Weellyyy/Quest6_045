@@ -103,7 +103,9 @@ fun FormIsian(
                 modifier = Modifier
                     .width(250.dp),
                 label = {Text(text = "Alamat")},
-                onValueChange = {}
+                onValueChange = {
+                    txtAlamat = it
+                }
             )
             Spacer(modifier = Modifier.height(30.dp))
             Button(
